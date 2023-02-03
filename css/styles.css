@@ -22,7 +22,8 @@
   --gray-1: #f5f4fa;
   --gray-2: #afb1b8;
   --black-1: #000000;
-
+  --animation-speed: 250ms;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --container-padding: calc((100% - 1200px) / 2);
 }
 
@@ -169,7 +170,7 @@ header .container .contact-menu li .link:hover .icon {
       rgba(47, 48, 58, 0.4)
     ),
     url(../images/Img_Hero.svg);
-  padding: 200px var(--container-padding);
+  padding: 203px var(--container-padding);
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
@@ -536,32 +537,49 @@ footer .container aside ul li:hover a .icon {
 }
 
 /* Ventana modal */
-.backdrop.is-hidden {
-  display: none;
-}
 .backdrop {
   position: fixed;
+  top: 0;
+  bottom: 0;
+
+  width: 100vw;
+  height: 100vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 0;
-  left: 0;
-  background-color: #00000060;
-  width: 100vw;
-  height: 100vh;
+  opacity: 1;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: visible;
+  pointer-events: none;
+}
+.backdrop.is-hidden .modal {
+  transform: translateY(-100vh);
+  transition: transform 700ms ease-out;
 }
 .modal {
-  position: relative;
-  width: 528px;
-  height: 591px;
+  position: absolute;
+  top: 12%;
+  left: 30%;
+
+  min-width: 528px;
+  min-height: 581px;
+
   background: white;
-  animation: animate75 3000ms infinite 1000ms;
+
+  transform: translateY(0);
+  transition: transform 500ms ease-out;
 }
+
 .close {
   width: 18px;
   height: 18px;
   fill: #000000;
 }
+
 .modal-close {
   position: absolute;
   top: 8px;
@@ -572,16 +590,10 @@ footer .container aside ul li:hover a .icon {
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
-@keyframes animate75 {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(0.75);
-  }
-
-  100% {
-    transform: scale(1);
-  }
+.close:hover,
+.close:focus {
+  cursor: pointer;
+  fill: var(--accent-color);
+  transform: rotate(360deg);
+  transition: transform 500ms ease;
 }
