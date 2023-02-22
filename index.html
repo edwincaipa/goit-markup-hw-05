@@ -127,16 +127,19 @@
         <h2>A que nos dedicamos</h2>
         <!-- images  -->
         <ul>
-          <li>
+          <li class="thumb">
             <img src="images/img_01.jpg" width="373" alt="typing on keyboard" />
+            <span class="title">APLICACIONES DE ESCRITORIO</span>
           </li>
 
-          <li>
+          <li class="thumb">
             <img src="images/img_02.jpg" width="373" alt="checking phone" />
+            <span class="title">APLICACIONES MÓVILES</span>
           </li>
 
-          <li>
+          <li class="thumb">
             <img src="images/img_03.jpg" width="373" alt="Looking at the design" />
+            <span class="title">SOLUCIONES DE DISEÑO</span>
           </li>
         </ul>
       </div>
@@ -399,6 +402,46 @@
           <use href="./images/icons.svg#cerrar"></use>
         </svg>
       </button>
+
+      <form class="modal-form" autocomplete="on">
+        <p class="title">Deje sus datos, nos contactaremos con usted</p>
+
+        <label class="label-input" for="name">Nombre
+          <input class="input-form" type="text" name="name" id="name" />
+          <svg class="icon-form" width="18" height="18">
+            <use href="images/icons.svg#icon-modal-name"></use>
+          </svg>
+        </label>
+
+        <label class="label-input" for="telefono">Telefono
+          <input class="input-form" type="telefono" name="telefono" id="telefono" />
+          <svg class="icon-form" width="18" height="18">
+            <use href="images/icons.svg#icon-modal-tel"></use>
+          </svg>
+        </label>
+
+        <label class="label-input" for="email">Email
+          <input class="input-form" type="email" name="email" id="email" />
+          <svg class="icon-form" width="18" height="18">
+            <use href="images/icons.svg#icon-modal-email"></use>
+          </svg>
+        </label>
+        <label class="comment-field">Comentarios
+        </label>
+        <textarea class="comment" name="comment" id="comment" rows="7" placeholder="Introduzca el texto"></textarea>
+
+        <label class="label-checkbox">
+          <input type="checkbox" name="policy" value="agreement" class="checkbox" />
+          <span class="icon-check"></span>
+          <span class="form-text">
+            Estoy de acuerdo con el boletin informativo
+            y acepto los
+            <a href="" class="link-checkbox">terminos y condiciones</a>
+          </span>
+        </label>
+
+        <button type="submit" class="button-submit">Enviar</button>
+      </form>
     </div>
   </div>
   <script src="js/modal.js"></script>
